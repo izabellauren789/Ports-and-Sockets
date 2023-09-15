@@ -1,1 +1,4 @@
-# Project-1-CECS-326
+# send help
+> Isa , Samuel Lee
+
+> due 9/24
