@@ -19,7 +19,7 @@ public class QuoteServer
         PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
         /* write the Date to the socket */ //change to quote of the day
         /*CHANGE THIS LINE */
-        pout.println(new java.util.Date().toString()); // change front part, keep toString()
+        pout.println(pout.toString()); // change front part, keep toString()
         /* close the socket and resume */
         /* listening for connections */
         client.close();
