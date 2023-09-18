@@ -12,7 +12,7 @@ public class QuoteClient
 		try 
 		{
 			/* make connection to server socket */
-			Socket sock = new Socket("127.0.0.1",17);
+			Socket sock = new Socket("127.0.0.1",6017);
 			InputStream in = sock.getInputStream();
 			BufferedReader bin = new BufferedReader(new InputStreamReader(in));
 			/* read the date from the socket */
