@@ -11,7 +11,7 @@ public class QuoteServer
   public static void main(String[] args) {
     try 
     {
-      ServerSocket sock = new ServerSocket(17); //pulling from pre existing port
+      ServerSocket sock = new ServerSocket(6017); //pulling from pre existing port
       /* now listen for connections */
       while (true) 
       {
