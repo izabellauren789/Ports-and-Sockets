@@ -11,7 +11,7 @@ public class QuoteServer
   public static void main(String[] args) {
     try 
     {
-      ServerSocket sock = new ServerSocket(17); //pulling from pre existing port
+      ServerSocket sock = new ServerSocket(6017); //pulling from pre existing port
       /* now listen for connections */
       while (true) 
       {
@@ -19,7 +19,7 @@ public class QuoteServer
         PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
         /* write the Date to the socket */ //change to quote of the day
         /*CHANGE THIS LINE */
-        pout.println(pout.toString()); // change front part, keep toString()
+        pout.println(new java.util.Date().toString()); // change front part, keep toString()
         /* close the socket and resume */
         /* listening for connections */
         client.close();
