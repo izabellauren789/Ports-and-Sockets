@@ -8,21 +8,18 @@ import java.net.*;
 public class EchoClient {
     public static void main(String[] args) 
     {
-        String serverHost = "127.0.0.1";
-        int serverPort = 6007;
-
-        try (Socket socket = new Socket(serverHost, serverPort)) 
+        try (Socket socket = new Socket("127.0.0.1", 6007)) 
         {
-            OutputStream outputStream = socket.getOutputStream();
-            InputStream inputStream = socket.getInputStream();
+            OutputStream out = socket.getOutputStream();
+            InputStream in = socket.getInputStream();
 
             // Send data to the server
             String message = "Hello, World.";
-            outputStream.write(message.getBytes());
+            out.write(message.getBytes());
 
             // Receive and print the response from the server
             byte[] buffer = new byte[1024];
-            int bytesRead = inputStream.read(buffer);
+            int bytesRead = in.read(buffer);
             if (bytesRead != -1) {
                 String response = new String(buffer, 0, bytesRead);
                 System.out.println("Received: " + response);
