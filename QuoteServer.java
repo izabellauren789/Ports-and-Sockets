@@ -5,34 +5,27 @@
  
  import java.net.*;
  import java.io.*;
+ import java.util.Random;
  
  public class QuoteServer {
    public static void main(String[] args) {
      try {
-       ServerSocket sock = new ServerSocket(6017); // Listen on port 6017
+       String quoteList[] = {"Learn from yesterday, live for today, hope for tomorrow", "Count your life by smiles, not tears", 
+       "The only way to do great work is to love what you do", "You are never too old to set another goal or dream a new dream",
+       "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose",
+       "Do not allow people to dim your shine because they are blinded. Tell them to put some sunglasses on", 
+       "The essential conditions of everything you do must be choice, love, passion"};
+      ServerSocket sock = new ServerSocket(6017); // Listen on port 6017
        /* now listen for connections */
        while (true) {
          Socket client = sock.accept();
          PrintWriter pout = new PrintWriter(client.getOutputStream(),true);
 
- 
-         // Create a Socket to connect to the target server on port 17 (Quote of the day)
-         Socket targetServer = new Socket("127.0.0.1", 17);
-         // Get input and output streams for communication with the target server
-         InputStream targetIn = targetServer.getInputStream();
-         BufferedReader targetReader = new BufferedReader(new InputStreamReader(targetIn));
- 
-         // Read the quote of the day from the target server
-         String quoteLine;
-         while ((quoteLine = targetReader.readLine()) != null) 
-         {
-           pout.println(quoteLine);
-         }
- 
-        //pout.println(new java.util.Date().toString());
+         Random rand = new Random();
+         int i = rand.nextInt(6);
+         pout.println(quoteList[i]);
          // Close the sockets
          client.close();
-         targetServer.close();
        }
       } 
       catch (IOException ioe) {

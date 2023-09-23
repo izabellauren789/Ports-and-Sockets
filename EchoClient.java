@@ -17,7 +17,7 @@ public class EchoClient {
             InputStream inputStream = socket.getInputStream();
 
             // Send data to the server
-            String message = "Hello, world";
+            String message = "Hello, World.";
             outputStream.write(message.getBytes());
 
             // Receive and print the response from the server
