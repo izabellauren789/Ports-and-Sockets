@@ -18,14 +18,14 @@
       ServerSocket sock = new ServerSocket(6017); // Listen on port 6017
        /* now listen for connections */
        while (true) {
-         Socket client = sock.accept();
+         Socket client = sock.accept(); //, accept() returns socket
          PrintWriter pout = new PrintWriter(client.getOutputStream(),true);
 
-         Random rand = new Random();
+         Random rand = new Random();//use random to choose random quote from quoteList
          int i = rand.nextInt(6);
-         pout.println(quoteList[i]);
+         pout.println(quoteList[i]); // printwrite object can use println to write to socket to communicate with server
          // Close the sockets
-         client.close();
+         client.close(); // opened sockets must be closed
        }
       } 
       catch (IOException ioe) {
