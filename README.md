@@ -3,3 +3,8 @@
 > due 9/24
 
 # how to compile and test code
+
+variable
+functions
+inputs
+outputs
